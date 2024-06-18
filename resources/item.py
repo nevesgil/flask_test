@@ -24,7 +24,6 @@ class Item(MethodView):
         db.session.commit()
         return {"message": "DELETED"}
 
-
     @blp.arguments(ItemUpdateSchema)
     @blp.response(200, ItemSchema)
     def put(self, item_data, item_id):
@@ -39,6 +38,7 @@ class Item(MethodView):
         db.session.commit()
 
         return item
+
 
 @blp.route("/item")
 class ItemList(MethodView):
@@ -56,6 +56,5 @@ class ItemList(MethodView):
             db.session.commit()
         except SQLAlchemyError:
             abort(500, message="Error inserting the item")
-
 
         return item, 201

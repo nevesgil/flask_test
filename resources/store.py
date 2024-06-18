@@ -25,7 +25,6 @@ class Store(MethodView):
         return {"message": "DELETED"}
 
 
-
 @blp.route("/store")
 class StoreList(MethodView):
     @blp.response(201, StoreSchema(many=True))
@@ -50,6 +49,5 @@ class StoreList(MethodView):
             abort(400, message="There is already a store with this name")
         except SQLAlchemyError:
             abort(500, message="Error inserting the store")
-
 
         return store, 201
