@@ -30,12 +30,11 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@pgadmin.com
       - PGADMIN_DEFAULT_PASSWORD=admin
-    volumes:
-      - ./pgadmin_data:/var/lib/pgadmin
     ports:
       - "8081:80"
     networks:
       - pucapp-network
+    user: "5050:5050"
 
 networks:
   pucapp-network:
@@ -43,4 +42,3 @@ networks:
 
 volumes:
   postgres_data:
-  pgadmin_data:
