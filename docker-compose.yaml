@@ -22,7 +22,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres_data:/var/lib/postgres
+      - ./database/postgres_data:/var/lib/postgres
     networks:
       - pucapp-network
   pgadmin:

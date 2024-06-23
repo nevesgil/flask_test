@@ -48,7 +48,7 @@ class ItemList(MethodView):
 
     @blp.arguments(ItemSchema)
     @blp.response(201, ItemSchema)
-    def post(sel, item_data):
+    def post(self, item_data):
         item = ItemModel(**item_data)
 
         try:
